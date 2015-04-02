@@ -3,7 +3,11 @@ python:
   - "2.7"
 env:
   - DJANGO=1.7.5
+# to install dependencies
 install:
   - pip install -q Django==$DJANGO --use-mirrors
+  - pip install -q . --use-mirrors
+  - pip install -q -r requirements.txt --use-mirror
+# command to run tests
 script:
-  - python setup.py test
+  - python manage.py test
