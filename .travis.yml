@@ -7,6 +7,11 @@ env:
 install:
   - pip install -q Django==$DJANGO --use-mirrors
   - pip install -q -r requirements.txt --use-mirror
+  - pip install coverage
 # command to run tests
 script:
-  - python manage.py test
+  - python coverage run manage.py test
+after_success:
+  - coverage report
+  - pip install --quiet python-coveralls
+  - coveralls
