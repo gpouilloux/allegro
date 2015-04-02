@@ -86,3 +86,7 @@ STATIC_URL = '/static/'
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,  'templates'),
 )
+
+# Upload files
+MEDIA_ROOT = '/allegrovocal/media/'
+MEDIA_URL = '/media/'
