@@ -17,8 +17,10 @@ class SimpleTest(TestCase):
         docname = 'toto.png'
         newdoc = Document(docfile = docname)
         newdoc.save()
-        try:
-            doc = Document.objects.get(docfile=docname)
-            self.assertEqual(doc.docfile, docname)
-        except ObjectDoesNotExist:
-            self.fail('Document ' + docname + ' should be accessible')
+        doc = Document.objects.get(docfile=docname)
+        self.assertEqual(doc.docfile, docname)
+
+    def test_list(self):
+        client = Client()
+        response = client.get(reverse('list'))
+        self.assertEqual(response.status_code, 200)
