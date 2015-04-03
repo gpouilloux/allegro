@@ -1,5 +1,5 @@
 sudo: required
-anguage: python
+language: python
 services:
 - postgresql
 python:
