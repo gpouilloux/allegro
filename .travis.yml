@@ -15,6 +15,7 @@ install:
 before_script:
   - psql -c 'create database allegro_test;' -U postgres
   - python manage.py syncdb --noinput
+  - python manage.py makemigrations --noinput
   - python manage.py migrate --noinput
 # command to run tests
 script:
