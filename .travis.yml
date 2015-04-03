@@ -8,9 +8,11 @@ install:
   - pip install -q Django==$DJANGO --use-mirrors
   - pip install -q -r requirements.txt --use-mirror
   - pip install coverage
+before_script:
+  - manage.py syncdb --noinput
 # command to run tests
 script:
-  - coverage run manage.py test --noinput
+  - coverage run manage.py test --noinput allegro
 after_success:
   - coverage report
   - pip install --quiet python-coveralls
