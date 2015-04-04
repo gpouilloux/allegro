@@ -1,2 +1,3 @@
 [run]
 include = allegro*
+omit = allegro/tests*
