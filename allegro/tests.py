@@ -5,7 +5,6 @@ from allegro.models import Document
 
 
 class SimpleTest(TestCase):
-
     def test_helloworld(self):
         client = Client()
         response = client.get(reverse('index'))
@@ -13,7 +12,7 @@ class SimpleTest(TestCase):
 
     def test_adddoc(self):
         docname = 'toto.png'
-        newdoc = Document(docfile = docname)
+        newdoc = Document(docfile=docname)
         newdoc.save()
         doc = Document.objects.get(docfile=docname)
         self.assertEqual(doc.docfile, docname)
@@ -28,9 +27,13 @@ class SimpleTest(TestCase):
         docname = 'toto.txt'
         docfile = SimpleUploadedFile(docname, "file_content", content_type="text/plain")
         response = client.post(reverse('list'), {'docfile': docfile})
-        self.assertEqual(response.status_code, 302) # HTTP 302 FOUND
+        self.assertEqual(response.status_code, 302)  # HTTP 302 FOUND
+        queryset = Document.objects.get(pk=1)
+        self.assertIsNotNone(queryset.id)
+
+    def test_listpostfail(self):
         try:
-            queryset = Document.objects.get(pk=1)
-            self.assertIsNotNone(queryset.id)
+            Document.objects.get(pk=1)
+            self.fail('document does not exist')
         except Document.DoesNotExist:
-            self.fail('document should exist')
+            pass

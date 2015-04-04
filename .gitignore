@@ -3,12 +3,9 @@
 .idea
 .project
 .pydevproject
-*.geany
 docs/_build
 build
 dist
-*.egg*
-example/local_settings.py
 coverage.xml
 .ropeproject/*
 pep8.txt
@@ -19,5 +16,7 @@ pep8.txt
 *.tmp
 virtualenv
 .DS_Store
-
 *.prefs
+db.sqlite3
+media*
+migrations*
