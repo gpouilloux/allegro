@@ -19,7 +19,7 @@ PROJECT_ROOT = os.path.realpath(os.path.dirname(__file__))
 import dj_database_url
 DATABASES = {'default': dj_database_url.config()}  # TODO should add default in .config()
 DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
-DATABASES['default']['NAME'] = 'allegro'
+DATABASES['default']['NAME'] = 'allegro_db'
 
 
 # Quick-start development settings - unsuitable for production
