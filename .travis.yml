@@ -13,7 +13,7 @@ install:
   - pip install -q -r requirements.txt --use-mirror
   - pip install coverage
 before_script:
-  - psql -c 'create database allegro_db;' -U postgres
+  - psql -c 'create database allegro_test;' -U postgres
   - python manage.py syncdb --noinput
   - python manage.py makemigrations --noinput
   - python manage.py migrate --noinput
