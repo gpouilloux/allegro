@@ -1,0 +1,1 @@
+web: gunicorn allegrovocal.wsgi --log-file -
