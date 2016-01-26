@@ -1,6 +1,7 @@
 # allegro
 
-test
+Sample project using Django framework
+Not supported anymore.
 -----------------------------------------------
 
 Travis-CI : [![Build Status](https://travis-ci.org/gpouilloux/allegro.svg?branch=master)](https://travis-ci.org/gpouilloux/allegro)
